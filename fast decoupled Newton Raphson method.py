@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 # Cody Rorick
 # algorithm for the fast decoupled newton raphson method
 
@@ -31,10 +25,7 @@ for i in range(0, ybus.shape[0]):
     print("angle =", math.degrees(cmath.polar(ybus[i,2])[1]))
 
 
-# In[2]:
-
-
-#define Batrix
+#define B matrix
 Bmatrix = ybus.imag
 print("B matrix:")
 print(Bmatrix)
@@ -49,10 +40,7 @@ Jacobian4 = -ybus[2,2].imag
 print("\nJacobian 4:")
 print(Jacobian4)
 
-
-# In[205]:
-
-
+#scheduled power
 scheduledP2 = 2
 scheduledP3 = -4
 scheduledQ3 = -2.5
@@ -102,25 +90,16 @@ while(abs(P2difference)>=0.000001 or abs(P3difference)>=0.000001 or abs(Q3differ
     count+=1
 
 
-# In[206]:
-
-
 print("delta2 (degrees): ", delta_array[0])
 print("delta3 (degrees): ", delta_array[1])
 print("V3 (pu): ", V3)
-
-
-# In[207]:
-
 
 Voltage_Matrix = np.array([[cmath.rect(V1, 0)], [cmath.rect(V2, math.radians(delta_array[0]))], [cmath.rect(V3, math.radians(delta_array[1]))]])
 Current_Matrix = ybus.dot(Voltage_Matrix)
 Apparent_Power = np.conj(Current_Matrix)*Voltage_Matrix
 
 
-# In[208]:
-
-
+# Outputs
 print("Voltage Matrix")
 print(Voltage_Matrix)
 print('\n')
@@ -129,10 +108,6 @@ print(Current_Matrix)
 print('\n')
 print("Power Matrix")
 print(Apparent_Power)
-
-
-# In[209]:
-
 
 Line_Loss = Apparent_Power[0] + Apparent_Power[1] + Apparent_Power[2]
 print("loss in lines:", Line_Loss)
