@@ -21,6 +21,11 @@ The FDNR method is a widely used technique in power systems for efficiently solv
 - Checks power balance consistency in the system.
 
 ---
+## Three Bus Impedance Network
+
+<img width="763" height="461" alt="image" src="https://github.com/user-attachments/assets/168c182b-f9d4-4118-87f1-fd38d8cf1ffc" />
+
+---
 
 ## Requirements
 
